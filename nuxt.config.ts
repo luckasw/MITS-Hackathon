@@ -9,7 +9,9 @@ export default defineNuxtConfig({
       exclude: ['/register', '/login'],
     }
   },
-
+  router: {
+    middleware: 'redirect',
+  },
   alias: {
     "@": resolve(__dirname, "/"),
   },

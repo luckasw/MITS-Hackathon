@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const appConfig = useAppConfig();
+definePageMeta({
+  middleware: ["redirect"]
+})
 </script>
 
 <template>
