@@ -10,45 +10,78 @@ const items = [
     Sum: "0.5€",
     Status: "paid",
   },
+  {
+    Date: "2023-09-10",
+    Sum: "0.5€",
+    Status: "paid",
+  },
+  {
+    Date: "2023-04-25",
+    Sum: "0.5€",
+    Status: "paid",
+  },
+  {
+    Date: "2023-12-09",
+    Sum: "0.5€",
+    Status: "paid",
+  },
 ];
 const columns = ["Date", "Sum", "Status"];
 </script>
 
 <template>
-  <table class="table">
-    <thead>
-      <tr>
-        <th v-for="(column, index) in columns" :key="index">{{ column }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="(item, index) in items" :key="index">
-        <td v-for="(column, indexColumn) in columns" :key="indexColumn">
-          {{ item[column] }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="history-main">
+    <table class="table">
+      <thead>
+        <tr>
+          <th v-for="(column, index) in columns" :key="index">{{ column }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in items" :key="index">
+          <td v-for="(column, indexColumn) in columns" :key="indexColumn">
+            {{ item[column] }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @import "~/assets/main";
 
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
+.history-main {
+  width: 50vw;
 
-th,
-td {
-  padding: 10px;
-  border: 1px solid $primary;
-  text-align: left;
-}
+  @media only screen and (max-width: 600px) {
+    width: 100vw;
+  }
 
-th {
-  background-color: $primary;
-  color: $background;
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+    tr:nth-child(even) {
+      background: $background3;
+    }
+
+    tr:nth-child(odd) {
+      background: $background2;
+    }
+
+    th,
+    td {
+      padding: 1rem;
+      border: 1px solid $primary;
+      text-align: left;
+    }
+
+    th {
+      background-color: $primary;
+      color: $background;
+    }
+  }
 }
 </style>
