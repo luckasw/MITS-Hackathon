@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const appConfig = useAppConfig();
+</script>
 
 <template>
   <div class="dashboard-main">

@@ -1,6 +1,9 @@
+<script setup>
+const isMobile = false;
+</script>
 <template>
   <div class="layout-container">
-    <AppHeader />
+    <AppHeader :isMobile="isMobile" />
     <slot />
     <AppFooter />
   </div>
@@ -12,5 +15,4 @@
   flex-direction: column;
   min-height: 100vh;
 }
-
 </style>
