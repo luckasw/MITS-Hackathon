@@ -1,5 +1,6 @@
 <script setup>
 const supabase = useSupabaseClient();
+const router = useRouter();
 const emailP = ref(null);
 const userS = useSupabaseUser();
 const userData = reactive({ uuid: null });
@@ -27,13 +28,22 @@ async function fetchUserData() {
 
   }
 }
-onMounted(() => {
 
+onMounted(() => {
   fetchUserData();
 });
+
+function updateProfile() {
+  router.push('/update-profile');
+}
 </script>
 
 <template>
+  <h1>Profiil</h1>
   <p ref="emailP"> {{ userS.email }}</p>
   <p v-if="userData">UUID: {{ userData.uuid }}</p>
+
+  <div>
+    <button class="registerButton" @click="updateProfile">Muuda profiili</button>
+  </div>
 </template>
