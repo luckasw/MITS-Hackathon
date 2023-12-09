@@ -1,33 +1,25 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
+<script setup lang="ts">
+import { QrcodeStream } from 'vue-qrcode-reader';
 
-export default defineComponent({
-  name: "Registration",
-  components: {
-    QrcodeCapture,
-    QrcodeDropZone,
-    QrcodeStream,
-  },
-  methods: {
-    onDetect(detectedCodes) {
-      console.log(detectedCodes);
-      this.showModal = true;
-    },
-    onConfirm() {
-      console.log("confirmed");
-      this.closeModal();
-    },
-    closeModal() {
-      this.showModal = false;
-    },
-  },
-  data() {
-    return {
-      showModal: false,
-    };
-  },
+const showModal = ref(false);
+
+const users = await $fetch('/api/qr/204a461b-a5e1-456f-a086-cca35ad3f243', {
+  headers: useRequestHeaders(['cookie']),
 });
+
+function onDetect(detectedCodes) {
+  console.log(detectedCodes);
+  showModal.value = true;
+}
+
+function onConfirm() {
+  console.log('confirmed');
+  closeModal();
+}
+
+function closeModal() {
+  showModal.value = false;
+}
 </script>
 
 <template>
@@ -37,6 +29,7 @@ export default defineComponent({
   <Modal v-if="showModal" @confirm="onConfirm" @cancel="closeModal">
     <h1>Registreeri tops</h1>
   </Modal>
+  {{ users }}
 </template>
 
 <style scoped></style>

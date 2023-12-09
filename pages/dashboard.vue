@@ -4,13 +4,15 @@ const appConfig = useAppConfig();
 
 <template>
   <div class="dashboard-main">
-    <Button buttonText="Skänneeri" buttonTextColor="white" />
+    <NuxtLink to="/qr">
+      <Button buttonText="Skänneeri" buttonTextColor="white" />
+    </NuxtLink>
     <History />
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import "~/assets/main";
+@import '~/assets/main';
 
 .dashboard-main {
   margin-top: 5vh;
