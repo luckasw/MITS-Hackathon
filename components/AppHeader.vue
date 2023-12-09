@@ -5,6 +5,12 @@ const appConfig = useAppConfig();
 <template>
   <div class="header">
     <h1>Gringo</h1>
+    <nav>
+      <NuxtLink class="link" to="/">Esileht</NuxtLink>
+      <NuxtLink class="link" to="/about">Profiil</NuxtLink>
+      <NuxtLink class="link" to="/login">Log in</NuxtLink>
+      <NuxtLink class="link" to="/register">Register</NuxtLink>
+    </nav>
   </div>
 </template>
 
@@ -12,8 +18,18 @@ const appConfig = useAppConfig();
 @import "~/assets/main";
 
 .header {
-  // background-color: $secondary;
-  padding: 20px;
+  background-color: #155831;
+  color: white;
+  padding: 2rem;
   text-align: center;
+}
+nav {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+
+  .link {
+    color: white;
+  }
 }
 </style>
