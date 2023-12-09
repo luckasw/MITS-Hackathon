@@ -1,7 +1,7 @@
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
-import Modal from "../components/Modal.vue";
+import Modal from "../components/Modal";
 
 export default defineComponent({
   name: "Registration",
@@ -14,6 +14,13 @@ export default defineComponent({
     onDetect(detectedCodes) {
       console.log(detectedCodes);
       this.showModal = true;
+    },
+    onConfirm() {
+      console.log("confirmed");
+      this.closeModal();
+    },
+    closeModal() {
+      this.showModal = false;
     },
   },
   data() {
@@ -30,7 +37,7 @@ export default defineComponent({
       <qrcode-stream @detect="onDetect" />
     </div>
   </div>
-  <Modal v-if="showModal">
+  <Modal v-if="showModal" @confirm="onConfirm" @cancel="closeModal">
     <h1>Registreeri tops</h1>
   </Modal>
 </template>
