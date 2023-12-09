@@ -7,7 +7,7 @@ const appConfig = useAppConfig();
     <h1>Gringo</h1>
     <nav>
       <NuxtLink class="link" to="/">Esileht</NuxtLink>
-      <NuxtLink class="link" to="/about">Profiil</NuxtLink>
+      <NuxtLink class="link" to="/profile">Profiil</NuxtLink>
       <NuxtLink class="link" to="/login">Log in</NuxtLink>
       <NuxtLink class="link" to="/register">Register</NuxtLink>
     </nav>
