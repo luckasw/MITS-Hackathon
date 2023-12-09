@@ -4,9 +4,9 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/supabase'],
   supabase:{
     redirectOptions: {
-      login: '/dashboard',
+      login: '/login',
       callback: '/index',
-      exclude: ['/register', '/login'],
+      exclude: [],
     }
   },
   router: {

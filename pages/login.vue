@@ -7,24 +7,29 @@ const password = ref('');
 const errorMsg = ref(null);
 const loading = ref(false);
 
+client.auth.onAuthStateChange((event, session) => {
+  if (event === 'SIGNED_IN') {
+    router.push('/dashboard');
+  }
+});
+
 async function signIn() {
   loading.value = true;
+  errorMsg.value = null;
   try {
-    const { error } = await client.auth.signInWithPassword({
+    const { user, error } = await client.auth.signInWithPassword({
       email: email.value,
       password: password.value,
     });
     if (error) throw error;
-    if (user) {
-      router.push('/index');
-    }
   } catch (error) {
     errorMsg.value = error.message;
   }
   finally {
-  loading.value = false;
+    loading.value = false;
   }
 }
+
 </script>
 
 <template>
@@ -35,6 +40,9 @@ async function signIn() {
         <input class="inputField" type="email" placeholder="Your email" v-model="email" />
         <input class="inputField" type="password" placeholder="Your password" v-model="password" />
       </div>
+      <div v-if="errorMsg" class="error">
+        {{ errorMsg }}
+      </div>
       <div>
         <input
             type="submit"
@@ -43,6 +51,7 @@ async function signIn() {
             :disabled="loading"
         />
       </div>
+
     </div>
   </form>
 </template>
