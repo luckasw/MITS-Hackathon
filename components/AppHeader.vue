@@ -15,14 +15,14 @@ const toggleDropdown = () => {
 
 async function logOut() {
   try {
-    const { error } = await supabase.auth.signOut()
-    toggleDropdown()
-    router.push('/')
+    const { error } = await supabase.auth.signOut();
+    toggleDropdown();
+    router.push("/");
 
     if (error) throw error;
   } catch (error) {
-    console.log(error)
-}
+    console.log(error);
+  }
 }
 </script>
 
@@ -39,8 +39,7 @@ async function logOut() {
         <NuxtLink class="mobilelink" to="/profile" @click="toggleDropdown"
           >Profiil</NuxtLink
         >
-        <button class="logOut" @click="logOut"
-          >Logi välja</button>
+        <button class="mobilelink logOut" @click="logOut">Logi välja</button>
       </div>
     </div>
     <div class="hamburger-icon" @click="toggleDropdown">
@@ -54,7 +53,7 @@ async function logOut() {
     <nav class="desktop-nav">
       <NuxtLink class="link" to="/">Esileht</NuxtLink>
       <NuxtLink class="link" to="/profile">Profiil</NuxtLink>
-      <button class="logOut" @click="logOut">Logi välja</button>
+      <button class="link logOut" @click="logOut">Logi välja</button>
     </nav>
   </div>
 </template>
@@ -70,12 +69,16 @@ async function logOut() {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   padding: 30px;
   z-index: 1;
 
+  h1 {
+    padding: 0 5vw 0 5vw;
+  }
+
   .desktop-nav {
-    margin-top: 20px;
+    margin-top: 0px;
     display: flex;
     justify-content: space-evenly;
     align-items: stretch;
@@ -91,6 +94,7 @@ async function logOut() {
       justify-content: center;
       white-space: nowrap;
       font-size: 1.5rem;
+      background-color: $primary;
     }
   }
 
@@ -119,6 +123,7 @@ async function logOut() {
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: $primary;
       }
     }
   }
@@ -174,7 +179,7 @@ async function logOut() {
 
 @media (min-width: 600px) {
   .header {
-    padding-bottom: 0;
+    padding: 10px;
   }
 }
 </style>
