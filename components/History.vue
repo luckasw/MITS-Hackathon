@@ -53,6 +53,7 @@ const columns = ["Date", "Sum", "Status"];
 
 .history-main {
   width: 50vw;
+  color: $textBright;
 
   @media only screen and (max-width: 600px) {
     width: 100vw;
@@ -80,7 +81,7 @@ const columns = ["Date", "Sum", "Status"];
 
     th {
       background-color: $primary;
-      color: $background;
+      color: $textBright;
     }
   }
 }

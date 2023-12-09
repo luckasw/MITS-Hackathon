@@ -4,15 +4,14 @@ const emailP = ref(null);
 const userS = useSupabaseUser();
 const userData = reactive({ uuid: null });
 async function fetchUserData() {
-
   if (emailP.value) {
     const userEmail = emailP.value.innerText;
     try {
       const { data, error } = await supabase
-          .from('user')
-          .select('email, uuid')
-          .eq('email', userEmail)
-          .single();
+        .from("user")
+        .select("email, uuid")
+        .eq("email", userEmail)
+        .single();
 
       if (error) throw error;
 
@@ -22,18 +21,62 @@ async function fetchUserData() {
 
       console.log(data);
     } catch (err) {
-      console.error('Error fetching user data:', err);
+      console.error("Error fetching user data:", err);
     }
-
   }
 }
 onMounted(() => {
-
   fetchUserData();
 });
 </script>
 
 <template>
-  <p ref="emailP"> {{ userS.email }}</p>
-  <p v-if="userData">UUID: {{ userData.uuid }}</p>
+  <div class="profile-main">
+    <div class="profile-header">
+      <h1>User Profile</h1>
+    </div>
+    <div class="profile-item">
+      <h4>Email:</h4>
+      <p>{{ userS.email }}</p>
+    </div>
+    <div class="profile-item">
+      <h4>UUID:</h4>
+      <p>{{ userData.uuid }}</p>
+      <p v-if="userData.uuid"><strong>UUID:</strong> {{ userData.uuid }}</p>
+    </div>
+  </div>
 </template>
+
+<style lang="scss" scoped>
+@import "~/assets/main";
+
+.profile-main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .profile-header {
+    text-align: center;
+    color: $primary;
+  }
+
+  .profile-item {
+    background-color: $background3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    width: 100%;
+
+    p,
+    h4 {
+      margin: 10px 0;
+      color: $background;
+      // font-size: 1.2rem;
+    }
+  }
+}
+</style>

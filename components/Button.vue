@@ -3,7 +3,7 @@ defineProps(["buttonText", "buttonTextColor"]);
 </script>
 
 <template>
-  <button :style="{ color: buttonTextColor }" class="button">
+  <button class="button">
     {{ buttonText }}
   </button>
 </template>
@@ -14,7 +14,7 @@ defineProps(["buttonText", "buttonTextColor"]);
 .button {
   padding: 20px;
   cursor: pointer;
-  color: $text;
+  color: $textBright;
   background-color: $primary;
   width: 50vw;
   max-width: 250px;

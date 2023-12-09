@@ -4,7 +4,7 @@ const appConfig = useAppConfig();
 
 <template>
   <div class="dashboard-main">
-    <Button buttonText="Skänneeri" buttonTextColor="white" />
+    <Button buttonText="Skanneeri"/>
     <History />
   </div>
 </template>
