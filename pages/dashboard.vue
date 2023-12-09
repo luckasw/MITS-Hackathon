@@ -4,20 +4,30 @@ const appConfig = useAppConfig();
 
 <template>
   <div class="dashboard-main">
-    <Button buttonText="Skanneeri"/>
-    <History />
+    <div class="dashboard-content">
+      <Button buttonText="Skanneeri" />
+      <History />
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import '~/assets/main';
+@import "~/assets/main";
 
 .dashboard-main {
-  margin-top: 5vh;
+  position: absolute;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  gap: 5vh;
+  bottom: 40px;
+
+  .dashboard-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
