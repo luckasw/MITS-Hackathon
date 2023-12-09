@@ -3,9 +3,21 @@ const appConfig = useAppConfig();
 </script>
 
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <div class="main">
+    <Button buttonText="Skänneeri" buttonTextColor="white" />
+    <History />
+  </div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+@import "~/assets/main";
+
+.main {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5vh;
+}
+</style>

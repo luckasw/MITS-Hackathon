@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const appConfig = useAppConfig()
+const appConfig = useAppConfig();
 </script>
 
 <template>
@@ -8,10 +8,15 @@ const appConfig = useAppConfig()
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/main";
+
 .footer {
-  background-color: #f8f9fa;
+  // background-color: $secondary;
   padding: 20px;
   text-align: center;
+  bottom: 0;
+  position: absolute;
+  width: 100vw;
 }
 </style>
