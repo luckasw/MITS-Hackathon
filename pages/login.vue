@@ -30,15 +30,19 @@ async function signIn() {
   }
 }
 
+function register() {
+  router.push('/register');
+}
+
 </script>
 
 <template>
   <form class="formLogin" @submit.prevent="signIn">
     <div class="">
-      <h1 class="header">Sign in to access Gringo</h1>
+      <h1 class="header">Logige sisse, et skanneerida topsi!</h1>
       <div>
-        <input class="inputField" type="email" placeholder="Your email" v-model="email" />
-        <input class="inputField" type="password" placeholder="Your password" v-model="password" />
+        <input class="inputField" type="email" placeholder="E-Posti Aadress" v-model="email" />
+        <input class="inputField" type="password" placeholder="Parool" v-model="password" />
       </div>
       <div v-if="errorMsg" class="error">
         {{ errorMsg }}
@@ -47,11 +51,14 @@ async function signIn() {
         <input
             type="submit"
             class="submitButton"
-            :value="loading ? 'Loading' : 'Sign in'"
+            :value="loading ? 'Laeb' : 'Logi sisse'"
             :disabled="loading"
         />
       </div>
-
     </div>
   </form>
+  <div class="register">
+    <p>Pole veel kasutajat?</p>
+    <button class="registerButton" @click="register">Registreeri</button>
+  </div>
 </template>
