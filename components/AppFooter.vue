@@ -20,10 +20,9 @@ const {
   background-color: $primary;
   padding: 20px;
   text-align: center;
+  color: $textBright;
   bottom: 0;
   position: relative;
   width: 100vw;
-  margin-top: 10vh;
-  color: $textBright;
 }
 </style>
