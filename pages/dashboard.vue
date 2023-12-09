@@ -1,13 +1,23 @@
 <script setup lang="ts">
-
+const appConfig = useAppConfig();
 </script>
 
 <template>
-  <section>
-    <p>This page will be displayed at the /dashboard route.</p>
-  </section>
+  <div class="dashboard-main">
+    <Button buttonText="Skänneeri" buttonTextColor="white" />
+    <History />
+  </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/main";
 
+.dashboard-main {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5vh;
+}
 </style>

@@ -1,17 +1,29 @@
 <script setup lang="ts">
-const appConfig = useAppConfig()
+const appConfig = useAppConfig();
+const {
+  public: { variables },
+} = useRuntimeConfig();
 </script>
 
 <template>
   <div class="footer">
-    <p>Footer</p>
+    <div class="copyright">
+      <p>&copy; 2023 {{ variables.appName }}. All rights reserved.</p>
+    </div>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/main";
+
 .footer {
-  background-color: #f8f9fa;
+  background-color: $primary;
   padding: 20px;
   text-align: center;
+  bottom: 0;
+  position: relative;
+  width: 100vw;
+  margin-top: 10vh;
+  color: $textBright;
 }
 </style>

@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+$primary: #155831;
+$secondary: #455b55;
+$accent: #c20002;
+$text: #0f0f0f;
+$textBright: #fff;
+$background: #ffffff;
+$background2: #e6f6ed;
+$background3: rgb(191, 221, 204);
+
 * {
   border: none;
   box-sizing: border-box;
@@ -8,4 +17,7 @@
   margin: 0;
   outline: none;
   padding: 0;
+}
+body {
+  background-color: $background;
 }

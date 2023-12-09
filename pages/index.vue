@@ -1,14 +1,10 @@
 <script setup lang="ts">
 const appConfig = useAppConfig();
 definePageMeta({
-  middleware: ["redirect"]
-})
+  middleware: ["redirect"],
+});
 </script>
 
-<template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
-</template>
+<template></template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
