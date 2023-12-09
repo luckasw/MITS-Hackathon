@@ -9,13 +9,9 @@ watch(() => route.query, checkParams);
 
 function handleError(error) {
   console.log(error);
-  clearError({
-    redirect: '/qr',
-  });
 }
 
 async function onDetect(detectedCodes) {
-  console.log(detectedCodes);
   if (detectedCodes[0].rawValue.startsWith('http://localhost:3000/qr?data=')) {
     await navigateTo({
       path: '/qr',
@@ -27,27 +23,31 @@ async function onDetect(detectedCodes) {
 }
 
 async function onConfirm() {
-  console.log('confirmed');
   try {
     const data = await $fetch(`/api/qr/${qr.value}`, {
       headers: useRequestHeaders(['cookie']),
     });
-    console.log(data);
   } catch (error) {
     handleError(error);
   } finally {
-    closeModal();
+    await closeModal();
   }
 }
 
-function closeModal() {
+async function closeModal() {
   showModal.value = false;
+  qr.value = '';
+  await navigateTo('/qr');
+  console.log(showModal.value);
 }
 
 function checkParams() {
+  console.log(showModal.value);
   if (route.query.data) {
     qr.value = route.query.data.toString();
     showModal.value = true;
+  } else {
+    qr.value = '';
   }
 }
 
