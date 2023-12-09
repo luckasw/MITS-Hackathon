@@ -10,7 +10,7 @@ const appConfig = useAppConfig();
 </template>
 
 <style lang="scss" scoped>
-@import "~/assets/main";
+@import '~/assets/main';
 
 .dashboard-main {
   margin-top: 5vh;

@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     redirectOptions: {
       login: "/login",
       callback: "/index",
-      exclude: [],
+      exclude: ["/register"],
     },
   },
   router: {
@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       variables: {
-        appName: "Gringo",
+        appName: "ReCup",
       },
     },
   },

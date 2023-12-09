@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
+const supabase = useSupabaseClient();
+const router = useRouter();
 
 const appConfig = useAppConfig();
 const {
@@ -10,6 +12,18 @@ const isMobile = ref(false);
 const toggleDropdown = () => {
   isMobile.value = !isMobile.value;
 };
+
+async function logOut() {
+  try {
+    const { error } = await supabase.auth.signOut()
+    toggleDropdown()
+    router.push('/')
+
+    if (error) throw error;
+  } catch (error) {
+    console.log(error)
+}
+}
 </script>
 
 <template>
@@ -25,12 +39,8 @@ const toggleDropdown = () => {
         <NuxtLink class="mobilelink" to="/profile" @click="toggleDropdown"
           >Profiil</NuxtLink
         >
-        <NuxtLink class="mobilelink" to="/login" @click="toggleDropdown"
-          >Log sisse</NuxtLink
-        >
-        <NuxtLink class="mobilelink" to="/register" @click="toggleDropdown"
-          >Registreeri</NuxtLink
-        >
+        <button class="logOut" @click="logOut"
+          >Logi välja</button>
       </div>
     </div>
     <div class="hamburger-icon" @click="toggleDropdown">
@@ -44,8 +54,7 @@ const toggleDropdown = () => {
     <nav class="desktop-nav">
       <NuxtLink class="link" to="/">Esileht</NuxtLink>
       <NuxtLink class="link" to="/profile">Profiil</NuxtLink>
-      <NuxtLink class="link" to="/login">Log sisse</NuxtLink>
-      <NuxtLink class="link" to="/register">Registreeri</NuxtLink>
+      <button class="logOut" @click="logOut">Logi välja</button>
     </nav>
   </div>
 </template>

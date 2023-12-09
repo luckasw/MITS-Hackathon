@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .background {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
