@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       variables: {
-        appName: "Gringo",
+        appName: "ReCup",
       },
     },
   },
