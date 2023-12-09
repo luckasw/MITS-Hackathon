@@ -74,7 +74,7 @@ async function logOut() {
   z-index: 1;
 
   h1 {
-    padding: 0 5vw 0 10vw;
+    padding: 0 5vw 0 5vw;
   }
 
   .desktop-nav {
