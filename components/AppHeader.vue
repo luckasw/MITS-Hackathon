@@ -15,14 +15,14 @@ const toggleDropdown = () => {
 
 async function logOut() {
   try {
-    const { error } = await supabase.auth.signOut()
-    toggleDropdown()
-    router.push('/')
+    const { error } = await supabase.auth.signOut();
+    toggleDropdown();
+    router.push("/");
 
     if (error) throw error;
   } catch (error) {
-    console.log(error)
-}
+    console.log(error);
+  }
 }
 </script>
 
@@ -39,8 +39,7 @@ async function logOut() {
         <NuxtLink class="mobilelink" to="/profile" @click="toggleDropdown"
           >Profiil</NuxtLink
         >
-        <button class="logOut" @click="logOut"
-          >Logi välja</button>
+        <button class="mobilelink logOut" @click="logOut">Logi välja</button>
       </div>
     </div>
     <div class="hamburger-icon" @click="toggleDropdown">
@@ -119,6 +118,7 @@ async function logOut() {
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: $primary;
       }
     }
   }

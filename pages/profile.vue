@@ -40,9 +40,8 @@ onMounted(() => {
       <p>{{ userS.email }}</p>
     </div>
     <div class="profile-item">
-      <h4>UUID:</h4>
-      <p>{{ userData.uuid }}</p>
-      <p v-if="userData.uuid"><strong>UUID:</strong> {{ userData.uuid }}</p>
+      <h4>IBAN:</h4>
+      <p>EE568384734588346348</p>
     </div>
   </div>
 </template>
@@ -75,7 +74,6 @@ onMounted(() => {
     h4 {
       margin: 10px 0;
       color: $background;
-      // font-size: 1.2rem;
     }
   }
 }
