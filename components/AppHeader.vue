@@ -15,14 +15,14 @@ console.log(isMobile);
     <!-- Dropdown for mobile view -->
     <div class="mobile-dropdown" v-if="isMobile">
       <NuxtLink class="link" to="/">Esileht</NuxtLink>
-      <NuxtLink class="link" to="/about">Profiil</NuxtLink>
+      <NuxtLink class="link" to="/profile">Profiil</NuxtLink>
       <NuxtLink class="link" to="/login">Log sisse</NuxtLink>
       <NuxtLink class="link" to="/register">Registreeri</NuxtLink>
     </div>
     <!-- Navigation for desktop view -->
     <nav v-if="!isMobile">
       <NuxtLink class="link" to="/">Esileht</NuxtLink>
-      <NuxtLink class="link" to="/about">Profiil</NuxtLink>
+      <NuxtLink class="link" to="/profile">Profiil</NuxtLink>
       <NuxtLink class="link" to="/login">Log sisse</NuxtLink>
       <NuxtLink class="link" to="/register">Registreeri</NuxtLink>
     </nav>
@@ -68,9 +68,9 @@ console.log(isMobile);
   }
 
   @media (max-width: 600px) {
-    nav {
-      display: none;
-    }
+    // nav {
+    //   display: none;
+    // }
   }
 }
 </style>
