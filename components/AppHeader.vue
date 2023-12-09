@@ -53,7 +53,7 @@ async function logOut() {
     <nav class="desktop-nav">
       <NuxtLink class="link" to="/">Esileht</NuxtLink>
       <NuxtLink class="link" to="/profile">Profiil</NuxtLink>
-      <button class="logOut" @click="logOut">Logi välja</button>
+      <button class="link logOut" @click="logOut">Logi välja</button>
     </nav>
   </div>
 </template>
@@ -69,12 +69,16 @@ async function logOut() {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   padding: 30px;
   z-index: 1;
 
+  h1 {
+    padding: 0 5vw 0 10vw;
+  }
+
   .desktop-nav {
-    margin-top: 20px;
+    margin-top: 0px;
     display: flex;
     justify-content: space-evenly;
     align-items: stretch;
@@ -90,6 +94,7 @@ async function logOut() {
       justify-content: center;
       white-space: nowrap;
       font-size: 1.5rem;
+      background-color: $primary;
     }
   }
 
@@ -174,7 +179,7 @@ async function logOut() {
 
 @media (min-width: 600px) {
   .header {
-    padding-bottom: 0;
+    padding: 10px;
   }
 }
 </style>
