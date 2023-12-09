@@ -1,18 +1,22 @@
-<script setup>
-const isMobile = false;
-</script>
+<script setup></script>
 <template>
   <div class="layout-container">
-    <AppHeader :isMobile="isMobile" />
-    <slot />
+    <AppHeader />
+    <div class="content">
+      <slot />
+    </div>
     <AppFooter />
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .layout-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.content {
+  flex-grow: 1;
 }
 </style>
