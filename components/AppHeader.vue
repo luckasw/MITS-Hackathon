@@ -39,12 +39,6 @@ async function logOut() {
         <NuxtLink class="mobilelink" to="/profile" @click="toggleDropdown"
           >Profiil</NuxtLink
         >
-        <NuxtLink class="mobilelink" to="/login" @click="toggleDropdown"
-          >Log sisse</NuxtLink
-        >
-        <NuxtLink class="mobilelink" to="/register" @click="toggleDropdown"
-          >Registreeri</NuxtLink
-        >
         <button class="logOut" @click="logOut"
           >Logi välja</button>
       </div>
@@ -60,8 +54,6 @@ async function logOut() {
     <nav class="desktop-nav">
       <NuxtLink class="link" to="/">Esileht</NuxtLink>
       <NuxtLink class="link" to="/profile">Profiil</NuxtLink>
-      <NuxtLink class="link" to="/login">Log sisse</NuxtLink>
-      <NuxtLink class="link" to="/register">Registreeri</NuxtLink>
       <button class="logOut" @click="logOut">Logi välja</button>
     </nav>
   </div>
