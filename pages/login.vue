@@ -7,6 +7,13 @@ const password = ref('');
 const errorMsg = ref(null);
 const loading = ref(false);
 
+onMounted(() => {
+  const user = useSupabaseUser();
+  if (user) {
+    router.push('/dashboard');
+  }
+});
+
 client.auth.onAuthStateChange((event, session) => {
   if (event === 'SIGNED_IN') {
     router.push('/dashboard');

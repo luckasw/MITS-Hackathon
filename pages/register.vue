@@ -9,6 +9,13 @@
   const router = useRouter();
   const timer = ref({value: 5});
 
+  onMounted(() => {
+    const user = useSupabaseUser();
+    if (user) {
+      router.push('/dashboard');
+    }
+  });
+
   async function signUp() {
     loading.value = true;
     try {
