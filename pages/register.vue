@@ -11,7 +11,7 @@ const timer = ref({ value: 5 });
 
 onMounted(() => {
   const user = useSupabaseUser();
-  if (!user) {
+  if (user.value) {
     router.push("/dashboard");
   }
 });

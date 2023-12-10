@@ -87,9 +87,6 @@ async function updateProfileData() {
   }
 }
 
-function profile() {
-  router.push('/profile')
-}
 </script>
 
 <template>
@@ -115,8 +112,9 @@ function profile() {
    </div>
  </form>
   <div class="register">
-    <p>Tagasi profiili?</p>
-    <button class="registerButton" @click="profile">Profiil</button>
+    <NuxtLink to="/profile">
+      <Button buttonText="Tagasi profiili" />
+    </NuxtLink>
   </div>
 </template>
 

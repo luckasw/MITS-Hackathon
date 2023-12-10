@@ -45,6 +45,9 @@ onMounted(() => {
         <p>EE568384734588346348</p>
       </div>
     </div>
+    <NuxtLink to="/update-profile">
+      <Button buttonText="Uuenda profiili" />
+    </NuxtLink>
   </div>
 </template>
 

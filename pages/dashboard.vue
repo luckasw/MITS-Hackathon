@@ -5,7 +5,9 @@ const appConfig = useAppConfig();
 <template>
   <div class="dashboard-main">
     <div class="dashboard-content">
+      <NuxtLink to="/qr">
       <Button buttonText="Skanneeri" />
+      </NuxtLink>
       <History />
     </div>
   </div>

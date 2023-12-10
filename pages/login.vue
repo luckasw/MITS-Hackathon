@@ -9,7 +9,7 @@ const loading = ref(false);
 
 onMounted(() => {
   const user = useSupabaseUser();
-  if (user) {
+  if (user.value) {
     router.push("/dashboard");
   }
 });
